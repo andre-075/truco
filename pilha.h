@@ -1,0 +1,56 @@
+#ifndef pilha.h
+#define pilha.h
+#include <stdio.h>
+#define MAX  100
+
+typedef int
+	tp_item;
+typedef struct {
+	int topo;
+	tp_item item[MAX];
+}tp_pilha;
+void inicializapilha(tp_pilha *p){
+    p->topo = -1;
+}
+int pilhavazia(tp_pilha *p){
+   if(p->topo == -1) return 1; 
+   return 0;
+}
+int pilhacheia(tp_pilha *p){
+    if (p ->topo == MAX - 1){
+        return 1;
+    }else {
+        return 0;
+    }
+}
+int push(tp_pilha *p, tp_item elemento){		
+	if(pilhacheia(p)==1) return 0;				
+	p->topo++;
+	p->item[p->topo]=elemento;
+	return 1;
+}
+int pop(tp_pilha *p, tp_item *elemento){				
+	if(pilhavazia(p))return 0;
+	*elemento=p->item[p->topo];
+	p->topo--;
+	return 1;                                                                                                           
+}
+int top(tp_pilha *p, tp_item *elemento){				
+	if(pilhavazia(p))return 0;
+	*elemento=p->item[p->topo];
+	return 1;                                                                                                           
+}
+void imprimepilha(tp_pilha *p){
+	if(!pilhavazia(p))	{					
+		for(int i=0;i<(p->topo)+1;i++)	{
+			printf("%d ", p->item[i]);
+		}
+		printf("\n");
+  }
+}
+int alturaPilha(tp_pilha p){
+	if(!pilhavazia(&p)) return 0;
+	return (p.topo)+1;
+}
+
+#endif
