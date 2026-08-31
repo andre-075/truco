@@ -41,8 +41,23 @@ void  randomizador(){    tp_pilha ordem;
     for(int i=0;i<40;i++){
         embaralhando[i]=i;
     }
-    embaralhar(embaralhando,40);
-    baralhopronto(embaralhando,baralho, embaralhado, 40  );
+    for(int i = 40-1;i>0;i--){
+        int j= rand()% (i+1);
+        
+        int temp = embaralhando[i];
+        embaralhando[i]= embaralhando[j];
+        embaralhando[j]=temp;
+
+    }
+          for(int i=0;i<40;i++){
+            int x= embaralhando[i];
+            for(int j=0;j<40;j++){
+                if(x==j){
+                    embaralhado[i]=baralho[j];
+                }
+            
+        }
+    }
     
     for(int i = 0; i < 40; i++) {
     printf("%d%c ", embaralhado[i].numero, embaralhado[i].naipe);
