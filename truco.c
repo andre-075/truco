@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <pilha.h>
-struct cartaz{
+#include "pilha_h"
+struct carta{
     int numero;
-    char nipe;
-}cartaz;
+    char naipe;
+}carta;
 void embaralhar(int embaralhando[],int tamanho){
     for(int i = tamanho-1;i>0;i--){
         int j= rand()% (i+1);
@@ -16,7 +16,7 @@ void embaralhar(int embaralhando[],int tamanho){
 
     }
 }
-void baralhopronto(int embaralhando[], struct cartaz baralho[], struct cartaz embaralhado[], int tamanho ){
+void baralhopronto(int embaralhando[], struct carta baralho[], struct carta embaralhado[], int tamanho ){
         for(int i=0;i<40;i++){
             int x= embaralhando[i];
             for(int j=0;j<40;j++){
@@ -27,12 +27,11 @@ void baralhopronto(int embaralhando[], struct cartaz baralho[], struct cartaz em
         }
     }
     }
-int main(){
-    tp_pilha ordem;
+void  randomizador(){    tp_pilha ordem;
     inicializapilha(&ordem);
     int embaralhando[40];
-    struct cartaz embaralhado[40];
-    struct cartaz baralho [40] = {
+    struct carta embaralhado[40];
+    struct carta baralho [40] = {
     {4,'O'}, {5,'O'}, {6,'O'}, {7,'O'}, {11,'O'}, {12,'O'}, {13,'O'}, {14,'O'}, {2,'O'}, {3,'O'},
     {4,'E'}, {5,'E'}, {6,'E'}, {7,'E'}, {11,'E'}, {12,'E'}, {13,'E'}, {14,'E'}, {2,'E'}, {3,'E'},
     {4,'C'}, {5,'C'}, {6,'C'}, {7,'C'}, {11,'C'}, {12,'C'}, {13,'C'}, {14,'C'}, {2,'C'}, {3,'C'},
@@ -46,8 +45,11 @@ int main(){
     baralhopronto(embaralhando,baralho, embaralhado, 40  );
     
     for(int i = 0; i < 40; i++) {
-    printf("%d%c ", embaralhado[i].numero, embaralhado[i].nipe);
+    printf("%d%c ", embaralhado[i].numero, embaralhado[i].naipe);
 }
 
+}
+int main(){
+randomizador();
 
 }

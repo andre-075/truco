@@ -1,5 +1,5 @@
-#ifndef pilha.h
-#define pilha.h
+#ifndef pilha_h
+#define pilha_h
 #include <stdio.h>
 #define MAX  100
 
@@ -52,5 +52,6 @@ int alturaPilha(tp_pilha p){
 	if(!pilhavazia(&p)) return 0;
 	return (p.topo)+1;
 }
+ 
 
 #endif
