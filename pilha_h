@@ -3,7 +3,7 @@
 #include <stdio.h>
 #define MAX  100
 
-typedef int
+typedef struct carta
 	tp_item;
 typedef struct {
 	int topo;
@@ -43,12 +43,12 @@ int top(tp_pilha *p, tp_item *elemento){
 void imprimepilha(tp_pilha *p){
 	if(!pilhavazia(p))	{					
 		for(int i=0;i<(p->topo)+1;i++)	{
-			printf("%d ", p->item[i]);
+			printf("%d%c ", p->item[i].numero,p->item[i].naipe);
 		}
 		printf("\n");
   }
 }
-int alturaPilha(tp_pilha p){
+int alturapilha(tp_pilha p){
 	if(!pilhavazia(&p)) return 0;
 	return (p.topo)+1;
 }
